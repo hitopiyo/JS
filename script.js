@@ -1,6 +1,12 @@
 
+function pullDown(){
+}
+
 const pullDownButton = document.getElementById("lists")
 const pullDownParents = document.getElementById("pull-down")
+const pullDownChild = document.querySelectorAll(".pull-down-list")
+const currentList = document.getElementById("current-list")
+
 
 window.addEventListener("load",function(){
 
@@ -20,5 +26,13 @@ window.addEventListener("load",function(){
             pullDownParents.setAttribute('style',"display:block;")
             console.log("表示");
         }
+        pullDownChild.forEach(function(list){
+            list.addEventListener('click',function(){
+                const value = list.innerHTML;
+                currentList.innerHTML = value;
+            })
+        })
     })
 })
+
+window.addEventListener('load',pullDown)
